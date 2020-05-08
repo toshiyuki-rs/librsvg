@@ -226,6 +226,11 @@ librsvg_@RSVG_API_MAJOR_VERSION@_la_LIBADD = \
 	$(LIBRSVG_LIBS) 	\
 	$(LIBM)			\
 	$(DLOPEN_LIBS)
+if OS_WIN32
+librsvg_@RSVG_API_MAJOR_VERSION@_la_LIBADD += \
+	-lws2_32 \
+	-luserenv
+endif
 
 librsvgincdir = $(includedir)/librsvg-$(RSVG_API_VERSION)/librsvg
 librsvginc_HEADERS =			\
